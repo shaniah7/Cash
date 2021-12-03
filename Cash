@@ -1,0 +1,45 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main (String[] args)
+    {
+        Scanner owe = new Scanner(System.in);
+        int count =0;
+        double amount = -1.0;
+
+        while(amount<0.0)
+        {
+            System.out.print("Change Owed: ");
+            amount = owe.nextDouble();
+        }
+
+        int cent = (int)Math.round(amount * 100);
+
+        if(cent >= 25)
+        {
+            int temp = cent%25;
+            count = count+ ((cent-temp)/25);
+            cent = temp;
+        }
+
+        if(cent >=10)
+        {
+            int temp = cent%10;
+            count = count+ ((cent-temp)/10);
+            cent = temp;
+        }
+
+        if(cent >=5)
+        {
+            int temp = cent%5;
+            count = count+ ((cent-temp)/5);
+            cent = temp;
+        }
+
+        count = count+cent;
+
+        System.out.println(count);
+    }
+}
